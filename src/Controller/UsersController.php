@@ -16,6 +16,11 @@ class UsersController extends AppController
 
     }
 
+    public function fuga()
+    {
+
+    }
+
     /**
      * Index method
      *
@@ -26,6 +31,7 @@ class UsersController extends AppController
         $users = $this->paginate($this->Users);
 
         $this->set(["users" => $users, "hoge" => "HOGEHOGEHOGE"]);
+        $this->set(["users" => $users, "fuga" => "FUGAFUGAFUGA"]);
     }
 
     /**
