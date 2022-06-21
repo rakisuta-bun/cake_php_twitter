@@ -22,7 +22,9 @@
             <tbody>
                 <?php foreach ($tweets as $tweet): ?>
                 <tr>
-                    <td><?= $this->Number->format($tweet->id) ?></td>
+                    <td><?= $this->Number->format($tweet->id) ?>
+                    <?= $tweet->hoge()?>
+                    </td>
                     <td><?= $tweet->has('user') ? $this->Html->link($tweet->user->id, ['controller' => 'Users', 'action' => 'view', $tweet->user->id]) : '' ?></td>
                     <td><?= h($tweet->body) ?></td>
                     <td><?= h($tweet->created) ?></td>

@@ -34,4 +34,8 @@ class Tweet extends Entity
         'modified' => true,
         'user' => true,
     ];
+    public function hoge()
+    {
+        return 'hoge';
+    }
 }
