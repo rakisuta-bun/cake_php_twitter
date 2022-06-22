@@ -45,10 +45,9 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasMany('Tweets',[
-            'foreignKey' => 'body',
-            'joinType' => 'INNER'
-        ]);
+        $this->hasMany('Tweets')
+            ->setForeignKey('user_id')
+            ->setJoinType('INNER');
     }
     //UsersTableクラスに、tweetsテーブルに対するhasMany関連の設定を書こう
 
