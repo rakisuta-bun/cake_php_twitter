@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Entity\Tweet;
+use App\Model\Table\TweetsTable;
+
 /**
  * Users Controller
  *
@@ -44,10 +47,12 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => [],
+            'contain' => ['Tweets'],
         ]);
 
-        $this->set(compact('user'));
+        $this->set([
+           'user' => $user,
+        ]);
     }
 
     /**
