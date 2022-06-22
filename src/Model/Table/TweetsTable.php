@@ -47,7 +47,7 @@ class TweetsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Users')
+        $this->belongsTo('User')
             ->setForeignKey('user_id')
             ->setJoinType('INNER');
     }
