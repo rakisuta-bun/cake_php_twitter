@@ -1,7 +1,12 @@
-<form method="POST">
-    <input type="hidden" name="_csrfToken" value="<?= $this->request->getAttribute('csrfToken') ?>">
+    <?= $this->Flash->render() ?>
+    <h3>Login</h3>
+    <?= $this->Form->create() ?>
+    <fieldset>
+        <legend><?= __('Please enter your username and password') ?></legend>
+        <?= $this->Form->control('email', ['required' => true]) ?>
+        <?= $this->Form->control('password', ['required' => true]) ?>
+    </fieldset>
+    <?= $this->Form->submit(__('Login')); ?>
+    <?= $this->Form->end() ?>
 
-    <input type="text" name="username"/>
-    <input type="password" name="password"/>
-    <button type="submit">送信</button>
-</form>
+    <?= $this->Html->link("Add User", ['action' => 'add']) ?>
