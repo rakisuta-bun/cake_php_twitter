@@ -42,7 +42,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <div class="top-nav-links">
             <?php if ($this->Identity->isLoggedIn()):?>
-            ようこそ<?= $this->Identity->get('email') ?>さん！
+            ようこそ<?= $this->Identity->get('nickname') ?>さん！
             <?php else:?>
             ようこそゲストさん！
             <?php endif; ?>

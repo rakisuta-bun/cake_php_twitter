@@ -20,6 +20,16 @@ class CreateUsers extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
+        $table->addColumn('username','string',[
+            'default' => null,
+            'limit' => 16,
+            'null' => false,
+        ]);
+        $table->addColumn('nickname','string',[
+           'default' => null,
+           'limit' => 32,
+           'null' => false,
+        ]);
         $table->addColumn('password', 'string', [
             'default' => null,
             'limit' => 255,
