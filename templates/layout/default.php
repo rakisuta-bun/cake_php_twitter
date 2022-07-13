@@ -48,6 +48,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <?php endif; ?>
             <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Documentation</a>
             <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
+            <a href="/users/logout/"></a>
         </div>
     </nav>
     <main class="main">
