@@ -29,35 +29,44 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?>
-
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <!--     Bootstrap の CSS-->
+    <?= $this->Html->css('bootstrap.min.css') ?>
+    <!--     jQuery-->
+    <?= $this->Html->script('jquery-3.3.1.min.js') ?>
+    <!--     Bootstrap の JS-->
+    <?= $this->Html->script('bootstrap.min.js') ?>
+
 </head>
 <body>
-    <nav class="top-nav">
-        <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
-        </div>
-        <div class="top-nav-links">
-            <?php if ($this->Identity->isLoggedIn()):?>
-            ようこそ<?= $this->Identity->get('nickname') ?>さん！
-            <?php else:?>
-            ようこそゲストさん！
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <!--            <nav class="top-nav">-->
+            <div class="top-nav-title">
+                <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+            </div>
+            <!--                <div class="top-nav-links">-->
+            <?php if ($this->Identity->isLoggedIn()): ?>
+                ようこそ<?= $this->Identity->get('nickname') ?>さん！
+            <?php else: ?>
+                ようこそゲストさん！
             <?php endif; ?>
             <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Documentation</a>
             <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
             <a href="/users/logout/"></a>
+            <!--                </div>-->
+            <!--            </nav>-->
+            <main class="main">
+                <?= $this->Flash->render() ?>
+                <?= $this->fetch('content') ?>
+            </main>
         </div>
-    </nav>
-    <main class="main">
-        <div class="container">
-            <?= $this->Flash->render() ?>
-            <?= $this->fetch('content') ?>
-        </div>
-    </main>
-    <footer>
-    </footer>
+        <footer>
+        </footer>
+    </div>
+</div>
 </body>
 </html>
