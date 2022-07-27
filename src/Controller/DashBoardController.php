@@ -29,7 +29,8 @@ class DashBoardController extends AppController
         }
 
         $tweets = $this->paginate(
-            $tweetsTable->query()
+            $tweetsTable->query()->order(['Tweets.id' => 'DESC'])
+                ->contain('Users')
                 ->where(['user_id' => $user->id])
         );
         $this->set(['tweets' => $tweets]);

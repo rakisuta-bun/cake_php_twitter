@@ -1,6 +1,6 @@
 <?php
 /**
- * @var \App\Model\Entity\Tweet[] $tweets
+ * @var \Cake\ORM\ResultSet $tweets
  * @var \App\View\AppView $this
  */
 ?>
@@ -17,13 +17,16 @@
         </div>
         <?php $this->Form->end(); ?>
     </div>
-
+    <?php // $tweets = array_reverse($tweets->toArray()); ?>
     <?php foreach ($tweets as $tweet): ?>
         <div class="card my-3">
             <div class="card-title pt-2 ">
-                <h5 class="card-title">
-                    <?= h($tweet->body) ?>
-                </h5>
+                <p class="card-title">
+                <h5><?= h($tweet->user->nickname) ?></h5>
+                <?= h($tweet->created) ?>
+                <br>
+                <?= h($tweet->body) ?>
+                </p>
             </div>
         </div>
     <?php endforeach; ?>
@@ -36,10 +39,11 @@
     //    $tweet = h($tweet->body);
     //    $tweet = array_reverse(h($tweet->body));
     //    $body_array = array_column(h($tweet->body), 'body');
-    foreach ($tweets as $tweet):
-//            rsort(&array())
-        echo array_reverse(h($tweet->body));
-    endforeach;
+    //    foreach ($tweets as $tweet):
+    ////            rsort(&array())
+    //        echo array_reverse(h($tweet->body));
+    //    endforeach;
+    //    $tweets = array_reverse($tweets->toArray());
     ?>
 
     <div class="row">
