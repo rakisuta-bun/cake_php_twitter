@@ -38,6 +38,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->script('jquery-3.3.1.min.js') ?>
     <!--     Bootstrap の JS-->
     <?= $this->Html->script('bootstrap.min.js') ?>
+    <?= $this->Html->script('default.css') ?>
 
 </head>
 <body>
@@ -47,6 +48,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <!--            <nav class="top-nav">-->
             <div class="top-nav-title">
                 <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+                <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Documentation</a>
+                <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
             </div>
             <!--                <div class="top-nav-links">-->
             <?php if ($this->Identity->isLoggedIn()): ?>
@@ -54,9 +57,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <?php else: ?>
                 ようこそゲストさん！
             <?php endif; ?>
-            <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Documentation</a>
-            <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
-            <a href="/users/logout/"></a>
+
+            <a href="/users/logout/">ログアウト</a>
             <!--                </div>-->
             <!--            </nav>-->
             <main class="main">
