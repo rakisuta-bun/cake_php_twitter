@@ -8,10 +8,11 @@
 <div class="row justify-content-md-center">
     <div class="col-md-4">
         <div class="table-responsive">
-            <h2>Dash Board</h2>
+            <h2 class="text-white">Dash Board</h2>
             <?= $this->Form->create(); ?>
             <div class="my-3">
-                <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea name="body" class="form-control bg-dark text-white" id="exampleFormControlTextarea1"
+                          rows="3"></textarea>
             </div>
             <button class="btn btn-dark mb-3 ml-3" type="submit">送信</button>
         </div>

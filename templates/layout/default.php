@@ -41,7 +41,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->script('default.css') ?>
 
 </head>
-<body>
+<body class="bg-secondary">
 <div class="container">
     <div class="row">
         <div class="col-12">
