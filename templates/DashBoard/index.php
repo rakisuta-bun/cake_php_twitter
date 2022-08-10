@@ -4,7 +4,6 @@
  * @var \App\View\AppView $this
  */
 ?>
-
 <div class="row justify-content-md-center">
     <div class="col-md-4">
         <div class="table-responsive">
@@ -26,9 +25,20 @@
             <div class="card mb-3 bg-dark">
                 <div class="card-title pt-2 text-white">
                     <p class="card-title">
-                    <h4 class="mx-3"><?= h($tweet->body) ?></h4>
-                    <p class="mx-3"><?= h($tweet->user->nickname) ?></p>
-                    <p class="mx-3"><?= h($tweet->created) ?></p>
+                        <img src="/img/pizza.png" width="100px">
+                        <?php
+                        echo $this->Html->image('pizza.png');
+                        ?>
+                    <div class="row">
+                        <div class="col-3">
+                            <img class="mx-3" src="/img/cook.png" width="100px">
+                        </div>
+                        <div class="col-9">
+                            <h4 class="mx-3"><?= h($tweet->body) ?></h4>
+                            <p class="mx-3"><?= h($tweet->user->nickname) ?></p>
+                            <p class="mx-3"><?= h($tweet->created) ?></p>
+                        </div>
+                    </div>
                     </p>
                 </div>
             </div>
@@ -51,38 +61,3 @@
 //    $tweets = array_reverse($tweets->toArray());
 ?>
 
-<div class="row">
-    <div class="col-md-12">
-        <table>
-            <thead>
-            <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('user_id') ?></th>
-                <th><?= $this->Paginator->sort('body') ?></th>
-                <th><?= $this->Paginator->sort('created') ?></th>
-                <th><?= $this->Paginator->sort('modified') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($tweets as $tweet): ?>
-                <tr>
-                    <td><?= $this->Number->format($tweet->id) ?>
-                        <?= $tweet->hoge() ?>
-                    </td>
-                    <td><?= $tweet->has('user') ? $this->Html->link($tweet->user->id, ['controller' => 'Users', 'action' => 'view', $tweet->user->id]) : '' ?></td>
-                    <td><?= h($tweet->body) ?></td>
-                    <td><?= h($tweet->created) ?></td>
-                    <td><?= h($tweet->modified) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $tweet->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $tweet->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $tweet->id], ['confirm' => __('Are you sure you want to delete # {0}?', $tweet->id)]) ?>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-</div>
