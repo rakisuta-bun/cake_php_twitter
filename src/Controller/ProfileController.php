@@ -46,25 +46,4 @@ class ProfileController extends AppController
             }
         }
     }
-
-    public function file()
-    {
-        if ($this->request->is('post')) {
-            $file = $this->request->getData("file");
-            if ($file != "undefind" && $file->getClientMediaType() != '') {
-                $type = $file->getClientMediaType();
-                $extension = '';
-                switch ($type) {
-                    case 'image/jepg':
-                        $extension = '.jpg';
-                        break;
-                    case 'image/png':
-                        $extension = '.png';
-                }
-                $land = Text::uuid();
-                $filePath = WWW_ROOT . "/img/" . $land . $extension;
-                $file->moveTo($filePath);
-            }
-        }
-    }
 }
