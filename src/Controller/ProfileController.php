@@ -41,8 +41,10 @@ class ProfileController extends AppController
                         $extension = '.png';
                 }
                 $land = Text::uuid();
-                $filePath = WWW_ROOT . "/img/" . $land . $extension;
+                $filePath = WWW_ROOT . "/img/upload/" . $land . $extension;
+                //↑をusersテーブルのavatarに格納されるようにすればよいのでは？
                 $file->moveTo($filePath);
+                var_dump($filePath);
             }
         }
     }

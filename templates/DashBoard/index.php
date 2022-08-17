@@ -30,8 +30,11 @@
                         echo $this->Html->image('pizza.png');
                         ?>
                     <div class="row">
-                        <div class="col-3">
-                            <img class="mx-3" src="/img/cook.png" width="100px">
+                        <div class="col-md-3">
+                            <?php
+                            echo $this->Html->image('cook.png');
+                            ?>
+                            <!--                            ここに仕込んだusersテーブルのavatarを表示すればよいのでは？-->
                         </div>
                         <div class="col-9">
                             <h4 class="mx-3"><?= h($tweet->body) ?></h4>

@@ -8,6 +8,7 @@ use App\Model\Entity\User;
 use App\Model\Table\TweetsTable;
 use Cake\Event\EventInterface;
 use Cake\ORM\TableRegistry;
+use Twig\Profiler\Profile;
 
 class DashBoardController extends AppController
 {
@@ -17,6 +18,7 @@ class DashBoardController extends AppController
         $user = $this->Authentication->getIdentity();
         /** @var TweetsTable $tweetsTable */
         $tweetsTable = TableRegistry::getTableLocator()->get('Tweets');
+        /** @var Profile $profile */
 
         if (
             $this->request->is('POST')
