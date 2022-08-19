@@ -26,26 +26,31 @@ class ProfileController extends AppController
     {
         /** @var User $user */
         $user = $this->Authentication->getIdentity();
-        /** @var TweetsTable $tweetsTable */
-        $this->set(['user' => $user]);
         if ($this->request->is('post')) {
             $file = $this->request->getData("file");
             if ($file != "undefind" && $file->getClientMediaType() != '') {
                 $type = $file->getClientMediaType();
                 $extension = '';
                 switch ($type) {
-                    case 'image/jepg':
+                    case 'image/jpeg':
                         $extension = '.jpg';
                         break;
                     case 'image/png':
                         $extension = '.png';
                 }
                 $land = Text::uuid();
+                $usersTable = TableRegistry::getTableLocator()->get('Users');
+                $user = $usersTable->get($user->id);
+                $user->avatar = $land . $extension;
+//                avatarに$filePathを保存したい
                 $filePath = WWW_ROOT . "/img/upload/" . $land . $extension;
                 //↑をusersテーブルのavatarに格納されるようにすればよいのでは？
                 $file->moveTo($filePath);
-                var_dump($filePath);
+                $usersTable->save($user);
             }
         }
+        $this->set(['user' => $user]);
+        var_dump($user->avatar);
+//        echo $this->Html->image('$user->avatar');
     }
 }
