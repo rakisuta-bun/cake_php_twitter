@@ -50,7 +50,5 @@ class ProfileController extends AppController
             }
         }
         $this->set(['user' => $user]);
-        var_dump($user->avatar);
-//        echo $this->Html->image('$user->avatar');
     }
 }

@@ -11,6 +11,6 @@
 </button>
 <!--                            ここに仕込んだusersテーブルのavatarを表示すればよいのでは？-->
 <?= $this->Form->end(); ?>
-<?php echo $user->avatar ?>
-<!--<img src="data:image/jpg --><?php //echo $user->avatar ?><!--">-->
+<?php //echo $user->avatar ?>
+<img src="/img/upload/<?php echo $user->avatar ?>">
 <!-- jpg画像の場合 -->
