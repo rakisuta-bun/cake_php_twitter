@@ -36,5 +36,6 @@ class DashBoardController extends AppController
                 ->where(['user_id' => $user->id])
         );
         $this->set(['tweets' => $tweets]);
+        $this->set(['user' => $user]);
     }
 }
