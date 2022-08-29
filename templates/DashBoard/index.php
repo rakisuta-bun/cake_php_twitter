@@ -1,23 +1,27 @@
 <?php
 /**
  * @var \Cake\ORM\ResultSet $tweets
- * * @var \Cake\ORM\ResultSet $user
+ * @var \Cake\ORM\ResultSet $user
  * @var \App\View\AppView $this
  *
  */
 ?>
 <div class="row justify-content-md-center">
     <div class="col-md-4">
+        <?= $this->Form->create(null, ['type' => 'file']); ?>
         <div class="table-responsive">
             <h2 class="text-white">Dash Board</h2>
-            <?= $this->Form->create(); ?>
             <div class="my-3">
                 <textarea name="body" class="form-control bg-dark text-white" id="exampleFormControlTextarea1"
                           rows="3"></textarea>
             </div>
             <button class="btn btn-dark mb-3 ml-3" type="submit">送信</button>
         </div>
-        <?php $this->Form->end(); ?>
+        <input type="file" name="file">
+        <button type="submit">
+            アップロード
+        </button>
+        <?= $this->Form->end(); ?>
     </div>
 </div>
 <?php // $tweets = array_reverse($tweets->toArray()); ?>
@@ -27,12 +31,10 @@
             <div class="card mb-3 bg-dark">
                 <div class="card-title pt-2 text-white">
                     <p class="card-title">
-                        <?php
-                        echo $this->Html->image('pizza.png');
-                        ?>
+                        <?= $this->Html->image('pizza.png'); ?>
                     <div class="row">
                         <div class="col-md-4">
-                            <img class="img-fluid mx-3" src="/img/upload/<?php echo $user->avatar ?>">
+                            <img class="img-fluid mx-3" src="/img/upload/<?= $user->avatar ?>">
                             <!--                            ここに仕込んだusersテーブルのavatarを表示すればよいのでは？-->
                         </div>
                         <div class="col-md-8">
