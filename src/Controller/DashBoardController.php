@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\Entity\Tweet;
+use App\Model\Entity\TweetImage;
 use App\Model\Entity\User;
 use App\Model\Table\TweetsTable;
 use Cake\Event\EventInterface;
@@ -24,7 +25,7 @@ class DashBoardController extends AppController
         if (
             $this->request->is('post')
         ) {
-            $tweet = $this->saveTweet($tweetsTable, $user);
+            $tweet = $this->saveTweet($user);
             $this->saveTweetImages($tweet);
         }
 
@@ -37,8 +38,9 @@ class DashBoardController extends AppController
         $this->set(['user' => $user]);
     }
 
-    private function saveTweet($tweetsTable, $user)
+    private function saveTweet($user)
     {
+        $tweetsTable = TableRegistry::getTableLocator()->get('Tweets');
         $body = $this->request->getData('body');
         $tweet = new Tweet();
         $tweet->body = $body;
@@ -47,7 +49,7 @@ class DashBoardController extends AppController
         return $tweet;
     }
 
-    private function saveTweetImages()
+    private function saveTweetImages($tweet)
     {
         /** @var User $user */
         $user = $this->Authentication->getIdentity();
@@ -64,12 +66,13 @@ class DashBoardController extends AppController
                         $extension = '.png';
                 }
                 $land = Text::uuid();
-                $usersTable = TableRegistry::getTableLocator()->get('Users');
-                $user = $usersTable->get($user->id);
-                $user->avatar = $land . $extension;
+                $tweetImageTable = TableRegistry::getTableLocator()->get('TweetImages');
+                $tweetImage = new TweetImage();
+                $tweetImage->path = $land . $extension;
+                $tweetImage->tweet_id = $tweet->id;
+                $tweetImageTable->save($tweetImage);
                 $filePath = WWW_ROOT . "/img/upload/tweet_images/" . $land . $extension;
                 $file->moveTo($filePath);
-                $usersTable->save($user);
 //                ファイルのパス情報と、ツイートの紐付け用のIDを登録する
             }
         }

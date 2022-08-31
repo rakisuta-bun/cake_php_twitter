@@ -18,9 +18,6 @@
             <button class="btn btn-dark mb-3 ml-3" type="submit">送信</button>
         </div>
         <input type="file" name="file">
-        <button type="submit">
-            アップロード
-        </button>
         <?= $this->Form->end(); ?>
     </div>
 </div>
