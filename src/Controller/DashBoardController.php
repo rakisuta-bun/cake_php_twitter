@@ -47,7 +47,7 @@ class DashBoardController extends AppController
         return $tweet;
     }
 
-    private function saveTweetImages($tweet)
+    private function saveTweetImages()
     {
         /** @var User $user */
         $user = $this->Authentication->getIdentity();
@@ -67,10 +67,10 @@ class DashBoardController extends AppController
                 $usersTable = TableRegistry::getTableLocator()->get('Users');
                 $user = $usersTable->get($user->id);
                 $user->avatar = $land . $extension;
-//                avatarに$filePathを保存したい
                 $filePath = WWW_ROOT . "/img/upload/tweet_images/" . $land . $extension;
                 $file->moveTo($filePath);
                 $usersTable->save($user);
+//                ファイルのパス情報と、ツイートの紐付け用のIDを登録する
             }
         }
         $this->set(['user' => $user]);
