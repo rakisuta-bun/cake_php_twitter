@@ -43,7 +43,7 @@ class ProfileController extends AppController
                 $user = $usersTable->get($user->id);
                 $user->avatar = $land . $extension;
 //                avatarに$filePathを保存したい
-                $filePath = WWW_ROOT . "/img/upload/" . $land . $extension;
+                $filePath = WWW_ROOT . "/img/upload/avatar/" . $land . $extension;
                 //↑をusersテーブルのavatarに格納されるようにすればよいのでは？
                 $file->moveTo($filePath);
                 $usersTable->save($user);

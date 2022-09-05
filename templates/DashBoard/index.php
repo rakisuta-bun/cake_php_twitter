@@ -31,7 +31,7 @@
                         <?= $this->Html->image('pizza.png'); ?>
                     <div class="row">
                         <div class="col-md-4">
-                            <img class="img-fluid mx-3" src="/img/upload/<?= $user->avatar ?>">
+                            <img class="img-fluid mx-3" src="/img/upload/avatar/<?= $user->avatar ?>">
                             <!--                            ここに仕込んだusersテーブルのavatarを表示すればよいのでは？-->
                         </div>
                         <div class="col-md-8">
