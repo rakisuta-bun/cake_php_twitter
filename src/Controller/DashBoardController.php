@@ -31,7 +31,7 @@ class DashBoardController extends AppController
 
         $tweets = $this->paginate(
             $tweetsTable->query()->order(['Tweets.id' => 'DESC'])
-                ->contain('Users')
+                ->contain(['Users', 'TweetImages'])
                 ->where(['user_id' => $user->id])
         );
         $this->set(['tweets' => $tweets]);
@@ -76,6 +76,5 @@ class DashBoardController extends AppController
 //                ファイルのパス情報と、ツイートの紐付け用のIDを登録する
             }
         }
-        $this->set(['user' => $user]);
     }
 }

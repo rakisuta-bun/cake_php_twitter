@@ -50,6 +50,8 @@ class TweetsTable extends Table
         $this->belongsTo('Users')
             ->setForeignKey('user_id')
             ->setJoinType('INNER');
+
+        $this->hasMany('TweetImages');
     }
 
     /**

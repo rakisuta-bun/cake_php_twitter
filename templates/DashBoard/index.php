@@ -28,7 +28,9 @@
             <div class="card mb-3 bg-dark">
                 <div class="card-title pt-2 text-white">
                     <p class="card-title">
-                        <?= $this->Html->image('pizza.png'); ?>
+                        <?php foreach ($tweet->tweet_images as $tweetImage): ?>
+                            <img class="card-img " src="/img/upload/tweet_images/<?= $tweetImage->path ?>">
+                        <?php endforeach; ?>
                     <div class="row">
                         <div class="col-md-4">
                             <img class="img-fluid mx-3" src="/img/upload/avatar/<?= $user->avatar ?>">
