@@ -5,10 +5,10 @@
  * @var \App\View\AppView $this
  *
  */
-$test = ["hoge", "piyo", "fuga",];
-array_unshift($test, "add");
-$a = array_pop($test);
-dd($a);
+//$test = ["hoge", "piyo", "fuga",];
+//array_unshift($test, "add");
+//$a = array_pop($test);
+//dd($a);
 
 ?>
 <div class="row justify-content-md-center">
