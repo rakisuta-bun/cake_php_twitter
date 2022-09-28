@@ -43,14 +43,14 @@ class Hoge
 //"おぢさんと遊ぼう💕"となる
 $kimoitext = new Hoge();
 $text1 = "おぢさんと";
-$emojis = array('💖', '💦', '🏨', '😁💕');
+$emojis = array('💖', '💦', '🏨', '😁💕', '❗');
 $randemoji = array_rand($emojis);
 $text2 = "遊ぼう";
 $kimoitexts = $kimoitext->love($text1, $emojis[$randemoji], $text2);
-dd($kimoitexts);
-
-
+//dd($kimoitexts);
 //ステップアップ問題　結合する引数1、引数2の間にきもい顔文字を入れよ
+
+
 //$view = new Hoge();
 //$rand0 = rand(0, 10);
 //$rand1 = rand(0, 10);
