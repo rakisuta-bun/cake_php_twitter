@@ -29,11 +29,17 @@ class Hoge
 //最後尾に💕マークのついた文字列を返すメソッドを
 //作成せよ　メソッド名はlove
 
-    public function love($odisan, $emoji, $play)
+    public function love($odisan, $play)
     {
         $heart = '💕';
-        $kimoi = $odisan . $emoji . $play . $heart;
+        $kimoi = $odisan . $play . $heart;
         return $kimoi;
+    }
+
+    public function love2()
+    {
+        $emoji1 = "🐟";
+        return $emoji1;
     }
 }
 
@@ -41,13 +47,19 @@ class Hoge
 //引数1が "おぢさんと"
 //引数2が "遊ぼう"の場合、出力は
 //"おぢさんと遊ぼう💕"となる
+
+//要件を満たした上で、機能追加の実装をすること
+
+//!を❗に自動置換する
 $kimoitext = new Hoge();
 $text1 = "おぢさんと";
-$emojis = array('💖', '💦', '🏨', '😁💕', '❗');
-$randemoji = array_rand($emojis);
+//$emojis = array('💖', '💦', '🏨', '😁💕', '❗');
+//$randemoji = array_rand($emojis);
+$fish = "🐟";
 $text2 = "遊ぼう";
-$kimoitexts = $kimoitext->love($text1, $emojis[$randemoji], $text2);
-//dd($kimoitexts);
+//$kimoitexts = $kimoitext->love($text1, $emojis[$randemoji], $text2);
+$kimoitexts = $kimoitext->love($text1, $text2);
+dd($kimoitexts);
 //ステップアップ問題　結合する引数1、引数2の間にきもい顔文字を入れよ
 
 
