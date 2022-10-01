@@ -32,14 +32,16 @@ class Hoge
     public function love($odisan, $play)
     {
         $heart = '💕';
-        $kimoi = $odisan . $play . $heart;
+        $smile = '😁💕';
+        $kimoi = $odisan . $smile . $play . $heart;
         return $kimoi;
     }
 
     public function love2()
     {
-        $emoji1 = "🐟";
-        return $emoji1;
+        $emojis = array('💖', '💦', '🏨', '😁💕', '❗');
+        $randemoji = array_rand($emojis);
+        return $emojis[$randemoji];
     }
 }
 
@@ -53,13 +55,13 @@ class Hoge
 //!を❗に自動置換する
 $kimoitext = new Hoge();
 $text1 = "おぢさんと";
-//$emojis = array('💖', '💦', '🏨', '😁💕', '❗');
-//$randemoji = array_rand($emojis);
-$fish = "🐟";
 $text2 = "遊ぼう";
-//$kimoitexts = $kimoitext->love($text1, $emojis[$randemoji], $text2);
 $kimoitexts = $kimoitext->love($text1, $text2);
-dd($kimoitexts);
+
+$kimoemoji = new Hoge();
+$kimoemojis = $kimoemoji->love2();
+dd($kimoemojis);
+//dd($kimoitexts);
 //ステップアップ問題　結合する引数1、引数2の間にきもい顔文字を入れよ
 
 
