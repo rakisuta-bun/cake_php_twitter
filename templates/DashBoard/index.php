@@ -32,7 +32,7 @@ class Hoge
     public function love($odisan, $play)
     {
         $heart = '💕';
-        $smile = '😁💕';
+        $smile = $this->love2();
         $kimoi = $odisan . $smile . $play . $heart;
         return $kimoi;
     }
@@ -43,6 +43,11 @@ class Hoge
         $randemoji = array_rand($emojis);
         return $emojis[$randemoji];
     }
+
+//    public function tikan()
+//    {
+//        str_replace()
+//    }
 }
 
 //実行例
@@ -55,13 +60,10 @@ class Hoge
 //!を❗に自動置換する
 $kimoitext = new Hoge();
 $text1 = "おぢさんと";
-$text2 = "遊ぼう";
+$text2 = "遊ぼう!!!";
+$text2 = str_replace("!", "❗", $text2);
 $kimoitexts = $kimoitext->love($text1, $text2);
-
-$kimoemoji = new Hoge();
-$kimoemojis = $kimoemoji->love2();
-dd($kimoemojis);
-//dd($kimoitexts);
+dd($kimoitexts);
 //ステップアップ問題　結合する引数1、引数2の間にきもい顔文字を入れよ
 
 
