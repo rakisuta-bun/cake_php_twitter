@@ -61,8 +61,7 @@ class Hoge
 $kimoitext = new Hoge();
 $text1 = "おぢさんと";
 $text2 = "遊ぼう!!!";
-$text2 = str_replace("!", "❗", $text2);
-$kimoitexts = $kimoitext->love($text1, $text2);
+$kimoitexts = str_replace("!", "❗", $kimoitext->love($text1, $text2));
 dd($kimoitexts);
 //ステップアップ問題　結合する引数1、引数2の間にきもい顔文字を入れよ
 
