@@ -58,11 +58,18 @@ class Hoge
 //要件を満たした上で、機能追加の実装をすること
 
 //!を❗に自動置換する
-$kimoitext = new Hoge();
-$text1 = "おぢさんと";
-$text2 = "遊ぼう!!!";
-$kimoitexts = str_replace("!", "❗", $kimoitext->love($text1, $text2));
-dd($kimoitexts);
+//$kimoitext = new Hoge();
+//$text1 = "おぢさんと";
+//$text2 = "遊ぼう!!！";
+////str_replace(
+////    array|string $search,
+////    array|string $replace,
+////    string|array $subject,
+////        int &$count = null
+////    ): string|array
+//$ngwords = ["!", "！"];
+//$kimoitexts = str_replace($ngwords, "❗", $kimoitext->love($text1, $text2));
+//dd($kimoitexts);
 //ステップアップ問題　結合する引数1、引数2の間にきもい顔文字を入れよ
 
 
