@@ -11,16 +11,24 @@
             <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
+
     <div class="column-responsive column-80">
         <div class="users form content">
             <?= $this->Form->create($user) ?>
             <fieldset>
                 <legend><?= __('Add User') ?></legend>
                 <?php
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('password');
-                    echo $this->Form->control('username');
-                    echo $this->Form->control('nickname');
+                echo $this->Form->control('email', [
+                    'label' => 'メールアドレス',
+                ]);
+
+                echo $this->Form->control('nickname', [
+                    'label' => 'ニックネーム',
+                ]);
+
+                echo $this->Form->control('password', [
+                    'label' => 'パスワード',
+                ]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
